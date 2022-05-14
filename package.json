@@ -12,7 +12,6 @@
     "@angular/platform-browser-dynamic": "^13.2.0",
     "@angular/router": "^13.2.0",
     "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
     "ng2-dragula": "^2.1.1",
     "ngx-autosize": "1.8.7",
     "ngx-pinch-zoom": "2.6.2",

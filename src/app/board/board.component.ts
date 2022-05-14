@@ -5,6 +5,7 @@ import { AutosizeModule } from 'ngx-autosize';
 import { findIndex } from 'rxjs/operators';
 import html2canvas from 'html2canvas';
 
+
 declare let jsPDF;
 
 @Component({
@@ -48,23 +49,24 @@ export class BoardComponent implements OnInit {
     // console.log();
   }
 
-  // download_PDF() {
-  //   // doc.text(20, 20, 'Hello World!');
-  //   // doc.addPage();
-  //   var element = document.getElementById('exp2');
-  //   html2canvas(element).then((canvas) => {
-  //     console.log(canvas);
 
-  //     var imgData = canvas.toDataURL('image/jpeg');
+  download_PDF() {
+    // doc.text(20, 20, 'Hello World!');
+    // doc.addPage();
+    var element = document.getElementById('exp2');
+    html2canvas(element).then((canvas) => {
+      console.log(canvas);
 
-  //     let doc = new jsPDF();
+      var imgData = canvas.toDataURL('image/jpeg');
 
-  //     var imgHeight = (canvas.height * 208) / canvas.width;
-  //     doc.addImage(imgData, 1, 1, 208, imgHeight);
-  //     doc.add;
-  //     doc.save('expoptedFile.pdf');
-  //   });
-  // }
+      let doc = new jsPDF();
+
+      var imgHeight = (canvas.height * 208) / canvas.width;
+      doc.addImage(imgData, 1, 1, 208, imgHeight);
+      doc.add;
+      doc.save('expoptedFile.pdf');
+    });
+  }
 
   @ViewChild('content') content: ElementRef;
 
@@ -76,9 +78,12 @@ export class BoardComponent implements OnInit {
     //     pdf.save('sample.pdf');
     //   },
     // });
-    pdf.addHTML(this.content.nativeElement, function () {
-      pdf.save('SavedPDF.pdf');
+    pdf.addHTML(this.content.nativeElement, function(){
+      pdf.save("SavedPDF.pdf");
     });
+
+
+
   }
 
   saveBoard() {
