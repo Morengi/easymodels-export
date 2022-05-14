@@ -1,0 +1,34 @@
+<my-app>loading</my-app>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+  $('.step').click(function () {
+    $(this).addClass('active').prevAll().addClass('active');
+    $(this).nextAll().removeClass('active');
+  });
+
+  $('.step01').click(function () {
+    $('#line-progress').css('width', '3%');
+    $('.January').addClass('active').siblings().removeClass('active');
+  });
+
+  $('.step02').click(function () {
+    $('#line-progress').css('width', '25%');
+    $('.February').addClass('active').siblings().removeClass('active');
+  });
+
+  $('.step03').click(function () {
+    $('#line-progress').css('width', '50%');
+    $('.March').addClass('active').siblings().removeClass('active');
+  });
+
+  $('.step04').click(function () {
+    $('#line-progress').css('width', '75%');
+    $('.April').addClass('active').siblings().removeClass('active');
+  });
+
+  $('.step05').click(function () {
+    $('#line-progress').css('width', '100%');
+    $('.May').addClass('active').siblings().removeClass('active');
+  });
+</script>
