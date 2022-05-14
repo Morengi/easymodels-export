@@ -3,6 +3,9 @@ import { DragulaService } from 'ng2-dragula';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { AutosizeModule } from 'ngx-autosize';
 import { findIndex } from 'rxjs/operators';
+import html2canvas from 'html2canvas';
+
+declare let jsPDF;
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -28,24 +31,40 @@ export class BoardComponent implements OnInit {
     this.test = !this.test;
   }
 
-  createBoard(){
-
+  createBoard() {
     this.boards.push({
-      values:[
-        this.cards_of_key_actions = [],
-        this.cards_of_key_resources = [],
-        this.cards_of_value_proposition = [],
-        this.cards_of_customer_relationships=[],
-        this.cards_of_channels=[],
-        this.cards_of_customer_segments=[],
-        this.cards_of_cost_structure=[],
-        this.cards_of_income_streams=[],
+      values: [
+        (this.cards_of_key_actions = []),
+        (this.cards_of_key_resources = []),
+        (this.cards_of_value_proposition = []),
+        (this.cards_of_customer_relationships = []),
+        (this.cards_of_channels = []),
+        (this.cards_of_customer_segments = []),
+        (this.cards_of_cost_structure = []),
+        (this.cards_of_income_streams = []),
       ],
       date: Date.now(),
     });
     // console.log();
   }
-  
+
+  download_PDF() {
+    // doc.text(20, 20, 'Hello World!');
+    // doc.addPage();
+    var element = document.getElementById('exp');
+    html2canvas(element).then((canvas) => {
+      console.log(canvas);
+
+      var imgData = canvas.toDataURL('image/png');
+
+      var doc = new jsPDF();
+
+      var imgHeight = (canvas.height * 208) / canvas.width;
+      doc.addImage(imgData, 0, 0, 208, imgHeight);
+
+      doc.save('expoptedFile.pdf');
+    });
+  }
 
   saveBoard() {
     this.boards.push({

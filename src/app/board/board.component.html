@@ -1,467 +1,475 @@
 <div class="header1">
-  <h1>Название
-     <nav class="main_menu">
-  <ul class="main_title"></ul>
-  <ul class="main_menu_list">
-    <li>
-      <a class="main_menu_link">···</a>
-      <ul class="main_sub-menu_list">
+  <h1>
+    Название
+    <nav class="main_menu">
+      <ul class="main_title"></ul>
+      <ul class="main_menu_list">
         <li>
-          <a class="main_sub-menu_link" (click)="createBoard()"
-            >Создать новую доску</a
-          >
-        </li>
-        <li>
-          <a class="main_sub-menu_link" (click) ="saveBoard()"
-            >Создать новое состояние доски</a
-          >
-        </li>
-        <li>
-          <a class="main_sub-menu_link" (click)="returnLastBoard()"
-            >Вернуть в исходный вид</a
-          >
-        </li>
-        <li>
-          <a class="main_sub-menu_link">Сравнить состояние досок</a>
-          <ul class="main_sub-sub-menu_list">
+          <a class="main_menu_link">···</a>
+          <ul class="main_sub-menu_list">
             <li>
-              <a class="main_sub-sub-menu_link_disabled"
-                >Выбрать начальный период для сравнения изменений</a
-              >
-            </li>
-            <li><input type="date" class placeholder="Введите дату" ></li>
-            <li>
-              <a class="main_sub-sub-menu_link_disabled"
-                >Выбрать конечный период для сравнения изменений</a
-              >
-            </li>
-            <li><input type="time" placeholder="Введите дату" /></li>
-            <li><a class="main_sub-sub-menu_link" (click)="compareBoard(boards.date,boards.date)" >Выполнить</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-Доски </h1>
-  
-</div>
-<table class="canva" width="100%">
-<tr>
-  <td rowspan="2" class="container">
-    <!-- ОТСЮДА НАЧАТЬ УДАЛЯТЬ -->
-    <h3 class="title_block">Партнеры</h3>
-    <nav class="menu">
-      <ul class="title1"></ul>
-      <ul class="menu_list">
-        <li>
-          <a class="menu_link" 
-          (click)="testingASS()"
-          >···</a>
-          <ul class="sub-menu_list" [ngClass]="{'active_menu': !this.test}">
-            <li>
-              <a class="sub-menu_link" (click)="addCard(0)"
-                >Добавить карточку</a
+              <a class="main_sub-menu_link" (click)="createBoard()"
+                >Создать новую доску</a
               >
             </li>
             <li>
-              <a class="sub-menu_link" (click)="deleteBlock(0)"
-                >Очистить блок</a
+              <a class="main_sub-menu_link" (click)="saveBoard()"
+                >Создать новое состояние доски</a
               >
             </li>
             <li>
-              <a class="sub-menu_link" (click)="returnLastCard(cards_of_key_partners)"
+              <a class="main_sub-menu_link" (click)="returnLastBoard()"
                 >Вернуть в исходный вид</a
               >
             </li>
             <li>
-              <a class="sub-menu_link">Проследить изменения</a>
-              <ul class="sub-sub-menu_list">
+              <a class="main_sub-menu_link">Сравнить состояние досок</a>
+              <ul class="main_sub-sub-menu_list">
                 <li>
-                  <a class="sub-sub-menu_link_disabled"
+                  <a class="main_sub-sub-menu_link_disabled"
                     >Выбрать начальный период для сравнения изменений</a
                   >
                 </li>
-                <li><input class placeholder="Введите дату" ></li>
+                <li><input type="date" class placeholder="Введите дату" /></li>
                 <li>
-                  <a class="sub-sub-menu_link_disabled"
+                  <a class="main_sub-sub-menu_link_disabled"
                     >Выбрать конечный период для сравнения изменений</a
                   >
                 </li>
-                <li><input placeholder="Введите дату" /></li>
-                <li><a class="sub-sub-menu_link" (click)="compareBoard(boards.date,boards.date)" >Выполнить</a></li>
+                <li><input type="time" placeholder="Введите дату" /></li>
+                <li>
+                  <a
+                    class="main_sub-sub-menu_link"
+                    (click)="compareBoard(boards.date, boards.date)"
+                    >Выполнить</a
+                  >
+                </li>
               </ul>
             </li>
           </ul>
         </li>
       </ul>
     </nav>
-    <div></div>
+    Доски
+  </h1>
+</div>
+<table class="canva" id="exp" width="100%">
+  <tr>
+    <td rowspan="2" class="container">
+      <!-- ОТСЮДА НАЧАТЬ УДАЛЯТЬ -->
+      <h3 class="title_block">Партнеры</h3>
+      <nav class="menu">
+        <ul class="title1"></ul>
+        <ul class="menu_list">
+          <li>
+            <a class="menu_link" (click)="testingASS()">···</a>
+            <ul class="sub-menu_list" [ngClass]="{ active_menu: !this.test }">
+              <li>
+                <a class="sub-menu_link" (click)="addCard(0)"
+                  >Добавить карточку</a
+                >
+              </li>
+              <li>
+                <a class="sub-menu_link" (click)="deleteBlock(0)"
+                  >Очистить блок</a
+                >
+              </li>
+              <li>
+                <a
+                  class="sub-menu_link"
+                  (click)="returnLastCard(cards_of_key_partners)"
+                  >Вернуть в исходный вид</a
+                >
+              </li>
+              <li>
+                <a class="sub-menu_link">Проследить изменения</a>
+                <ul class="sub-sub-menu_list">
+                  <li>
+                    <a class="sub-sub-menu_link_disabled"
+                      >Выбрать начальный период для сравнения изменений</a
+                    >
+                  </li>
+                  <li><input class placeholder="Введите дату" /></li>
+                  <li>
+                    <a class="sub-sub-menu_link_disabled"
+                      >Выбрать конечный период для сравнения изменений</a
+                    >
+                  </li>
+                  <li><input placeholder="Введите дату" /></li>
+                  <li>
+                    <a
+                      class="sub-sub-menu_link"
+                      (click)="compareBoard(boards.date, boards.date)"
+                      >Выполнить</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div></div>
 
-    <!-- ВСЕ ЧТО ДО СЮДА СВЕРХУ УДАЛИТЬ!!! -->
-    <!-- <h3 class="title_block">Партнеры</h3> -->
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_key_partners"
-    >
-      
+      <!-- ВСЕ ЧТО ДО СЮДА СВЕРХУ УДАЛИТЬ!!! -->
+      <!-- <h3 class="title_block">Партнеры</h3> -->
       <div
-        class="card"
-        *ngFor="let el of cards_of_key_partners; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_key_partners"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 0)"
-           
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 0)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 0)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 0)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_key_partners; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 0)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 0)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 0)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 0)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(0)" 
-      >Добавить карточку</div>
-  </td>
+      <div class="add_card" (click)="addCard(0)">Добавить карточку</div>
+    </td>
 
-  <td class="container">
-    <h3 class="title_block">Виды деятельности</h3>
-    <nav class="menu">
-      <ul class="title1"></ul>
-      <ul class="menu_list">
-        <li>
-          <a class="menu_link"
-          
-          >···</a>
-          <ul class="sub-menu_list" >
-            <li>
-              <a class="sub-menu_link" (click)="addCard(1)"
-                >Добавить карточку</a
-              >
-            </li>
-            <li>
-              <a class="sub-menu_link" (click)="deleteBlock(1)"
-                >Очистить блок</a
-              >
-            </li>
-            <li><a class="sub-menu_link">Вернуть в исходный вид</a></li>
-            <li>
-              <a class="sub-menu_link">Проследить изменения</a>
-              <ul class="sub-sub-menu_list">
-                <li>
-                  <a class="sub-sub-menu_link"
-                    >Выбрать начальный период для сравнения изменений</a
-                  >
-                </li>
-                <li>
-                  <a class="sub-sub-menu_link"
-                    >Выбрать конечный период для сравнения изменений</a
-                  >
-                </li>
-                <li><a class="sub-sub-menu_link">Выполнить</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <!-- ВСЕ ЧТО ДО СЮДА СВЕРХУ УДАЛИТЬ!!! -->
-    <!-- <h3 class="title_block">Виды деятельности</h3> -->
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_key_actions"
-    >
+    <td class="container">
+      <h3 class="title_block">Виды деятельности</h3>
+      <nav class="menu">
+        <ul class="title1"></ul>
+        <ul class="menu_list">
+          <li>
+            <a class="menu_link">···</a>
+            <ul class="sub-menu_list">
+              <li>
+                <a class="sub-menu_link" (click)="addCard(1)"
+                  >Добавить карточку</a
+                >
+              </li>
+              <li>
+                <a class="sub-menu_link" (click)="deleteBlock(1)"
+                  >Очистить блок</a
+                >
+              </li>
+              <li><a class="sub-menu_link">Вернуть в исходный вид</a></li>
+              <li>
+                <a class="sub-menu_link">Проследить изменения</a>
+                <ul class="sub-sub-menu_list">
+                  <li>
+                    <a class="sub-sub-menu_link"
+                      >Выбрать начальный период для сравнения изменений</a
+                    >
+                  </li>
+                  <li>
+                    <a class="sub-sub-menu_link"
+                      >Выбрать конечный период для сравнения изменений</a
+                    >
+                  </li>
+                  <li><a class="sub-sub-menu_link">Выполнить</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- ВСЕ ЧТО ДО СЮДА СВЕРХУ УДАЛИТЬ!!! -->
+      <!-- <h3 class="title_block">Виды деятельности</h3> -->
       <div
-        class="card"
-        *ngFor="let el of cards_of_key_actions; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_key_actions"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 1)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 1)">
-            Сохранить изменения
-          </article>
-          <article class="text">  </article>
-          <article class="btn_ok" (click)="deleteCard(i, 1)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 1)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_key_actions; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 1)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 1)">
+              Сохранить изменения
+            </article>
+            <article class="text"></article>
+            <article class="btn_ok" (click)="deleteCard(i, 1)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 1)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(1)">Добавить карточку</div>
-  </td>
-  <td rowspan="2" colspan="2">
-    <h3 class="title_block">Ценности</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_value_proposition"
-    >
+      <div class="add_card" (click)="addCard(1)">Добавить карточку</div>
+    </td>
+    <td rowspan="2" colspan="2">
+      <h3 class="title_block">Ценности</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_value_proposition; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_value_proposition"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 3)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 3)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 3)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 3)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_value_proposition; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 3)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 3)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 3)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 3)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(3)">Добавить карточку</div>
-  </td>
-  <td>
-    <h3 class="title_block">Отношения с покупателями</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_customer_relationships"
-    >
+      <div class="add_card" (click)="addCard(3)">Добавить карточку</div>
+    </td>
+    <td>
+      <h3 class="title_block">Отношения с покупателями</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_customer_relationships; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_customer_relationships"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 4)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 4)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 4)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 4)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_customer_relationships; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 4)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 4)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 4)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 4)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(4)">Добавить карточку</div>
-  </td>
+      <div class="add_card" (click)="addCard(4)">Добавить карточку</div>
+    </td>
 
-  <td rowspan="2">
-    <h3 class="title_block">Покупатели</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_customer_segments"
-    >
+    <td rowspan="2">
+      <h3 class="title_block">Покупатели</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_customer_segments; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_customer_segments"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 6)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 6)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 6)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 6)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_customer_segments; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 6)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 6)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 6)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 6)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(6)">Добавить карточку</div>
-  </td>
-</tr>
-<tr>
-  <td>
-    <h3 class="title_block">Ресурсы</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_key_resources"
-    >
+      <div class="add_card" (click)="addCard(6)">Добавить карточку</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h3 class="title_block">Ресурсы</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_key_resources; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_key_resources"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 2)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 2)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 2)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 2)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="add_card" (click)="addCard(2)">Добавить карточку</div>
-  </td>
-  <td>
-    <h3 class="title_block">Каналы сбыта</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_channels"
-    >
-      <div class="card" *ngFor="let el of cards_of_channels; let i = index">
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 5)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 5)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 5)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 5)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_key_resources; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 2)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 2)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 2)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 2)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(5)">Добавить карточку</div>
-  </td>
-</tr>
-<tr>
-  <td colspan="3">
-    <h3 class="title_block">Затраты</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_cost_structure"
-    >
+      <div class="add_card" (click)="addCard(2)">Добавить карточку</div>
+    </td>
+    <td>
+      <h3 class="title_block">Каналы сбыта</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_cost_structure; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_channels"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 7)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 7)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 7)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 7)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div class="card" *ngFor="let el of cards_of_channels; let i = index">
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 5)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 5)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 5)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 5)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(7)">Добавить карточку</div>
-  </td>
-  <td colspan="3">
-    <h3 class="title_block">Доходы</h3>
-    <div
-      class="card_block"
-      dragula="segments"
-      [(dragulaModel)]="cards_of_income_streams"
-    >
+      <div class="add_card" (click)="addCard(5)">Добавить карточку</div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <h3 class="title_block">Затраты</h3>
       <div
-        class="card"
-        *ngFor="let el of cards_of_income_streams; let i = index"
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_cost_structure"
       >
-        <h3 class="name">{{ el.name }}</h3>
-        <div class="text_block" *ngIf="!el.show_text">
-          <textarea
-            autosize
-            [minRows]="1"
-            [(ngModel)]="el.text"
-            (keydown.control.enter)="onCtrlEnter(i, 8)"
-            [attr.id]="el.date"
-          ></textarea>
-          <article class="btn_ok" (click)="onCtrlEnter(i, 8)">
-            Сохранить изменения
-          </article>
-          <article class="btn_ok" (click)="deleteCard(i, 8)">Удалить</article>
-        </div>
-        <div class="text_block" *ngIf="el.show_text">
-          <p class="text" (click)="changeText(i, 8)">
-            {{ el.text }}
-          </p>
-          <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+        <div
+          class="card"
+          *ngFor="let el of cards_of_cost_structure; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 7)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 7)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 7)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 7)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="add_card" (click)="addCard(8)">Добавить карточку</div>
-  </td>
-</tr>
+      <div class="add_card" (click)="addCard(7)">Добавить карточку</div>
+    </td>
+    <td colspan="3">
+      <h3 class="title_block">Доходы</h3>
+      <div
+        class="card_block"
+        dragula="segments"
+        [(dragulaModel)]="cards_of_income_streams"
+      >
+        <div
+          class="card"
+          *ngFor="let el of cards_of_income_streams; let i = index"
+        >
+          <h3 class="name">{{ el.name }}</h3>
+          <div class="text_block" *ngIf="!el.show_text">
+            <textarea
+              autosize
+              [minRows]="1"
+              [(ngModel)]="el.text"
+              (keydown.control.enter)="onCtrlEnter(i, 8)"
+              [attr.id]="el.date"
+            ></textarea>
+            <article class="btn_ok" (click)="onCtrlEnter(i, 8)">
+              Сохранить изменения
+            </article>
+            <article class="btn_ok" (click)="deleteCard(i, 8)">Удалить</article>
+          </div>
+          <div class="text_block" *ngIf="el.show_text">
+            <p class="text" (click)="changeText(i, 8)">
+              {{ el.text }}
+            </p>
+            <span class="time">{{ el.date | date: 'dd.MM.yyyy HH:mm' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="add_card" (click)="addCard(8)">Добавить карточку</div>
+    </td>
+  </tr>
 </table>
 <!-- </pinch-zoom> -->
 <!-- <div class="btn_ok" (click)="saveBoard()">Кнопочка</div>
@@ -470,6 +478,7 @@
 {{ b.date | date: 'dd.MM.yyyy HH:mm' }}
 </div> -->
 
+<button class="btn_ok" (click)="download_PDF()">Эксорт в PDF</button>
 
 <h1>Трекер изменений</h1>
 <br />
@@ -487,6 +496,7 @@
       <div id="line-progress"></div>
     </div>
   </div>
-<!-- <script>
+  <!-- <script>
 document.getElementById("foc").focus();
 </script> -->
+</div>
