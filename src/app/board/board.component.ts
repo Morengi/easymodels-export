@@ -5,7 +5,6 @@ import { AutosizeModule } from 'ngx-autosize';
 import { findIndex } from 'rxjs/operators';
 import html2canvas from 'html2canvas';
 
-
 declare let jsPDF;
 
 @Component({
@@ -49,26 +48,25 @@ export class BoardComponent implements OnInit {
     // console.log();
   }
 
-
   download_PDF() {
     // doc.text(20, 20, 'Hello World!');
     // doc.addPage();
-    var element = document.getElementById('exp2');
+    var element = document.getElementById('content');
     html2canvas(element).then((canvas) => {
       console.log(canvas);
 
       var imgData = canvas.toDataURL('image/jpeg');
 
-      let doc = new jsPDF();
+      let doc = new jsPDF('landscape', 'pt', 'a4');
 
-      var imgHeight = (canvas.height * 208) / canvas.width;
+      var imgHeight = (canvas.height * 1080) / canvas.width;
       doc.addImage(imgData, 1, 1, 208, imgHeight);
       doc.add;
       doc.save('expoptedFile.pdf');
     });
   }
 
-  @ViewChild('content') content: ElementRef;
+  @ViewChild('content') content!: ElementRef;
 
   makePdf() {
     let pdf = new jsPDF();
@@ -78,12 +76,9 @@ export class BoardComponent implements OnInit {
     //     pdf.save('sample.pdf');
     //   },
     // });
-    pdf.addHTML(this.content.nativeElement, function(){
-      pdf.save("SavedPDF.pdf");
+    pdf.addHTML(this.content.nativeElement, function () {
+      pdf.save('SavedPDF.pdf');
     });
-
-
-
   }
 
   saveBoard() {
