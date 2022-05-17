@@ -4,7 +4,7 @@ import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { AutosizeModule } from 'ngx-autosize';
 import { findIndex } from 'rxjs/operators';
 import html2canvas from 'html2canvas';
-
+import domtoimage from 'dom-to-image';
 declare let jsPDF;
 
 @Component({
@@ -54,19 +54,34 @@ export class BoardComponent implements OnInit {
     var element = document.getElementById('content');
     html2canvas(element).then((canvas) => {
       console.log(canvas);
+      var imgData = canvas.toDataURL('image/pdf');
 
-      var imgData = canvas.toDataURL('image/jpeg');
+      let doc = new jsPDF('landscape');
 
-      let doc = new jsPDF('landscape', 'pt', 'a4');
-
-      var imgHeight = (canvas.height * 1080) / canvas.width;
-      doc.addImage(imgData, 1, 1, 208, imgHeight);
+      var imgHeight = (canvas.height * 220) / canvas.width;
+      doc.addImage(imgData, 1, 1, 220, imgHeight);
       doc.add;
       doc.save('expoptedFile.pdf');
     });
   }
 
   @ViewChild('content') content!: ElementRef;
+
+  makeJpeg() {
+    var element = document.getElementById('content');
+    html2canvas(element).then((canvas) => {
+      console.log(canvas);
+
+      var imgData = canvas.toDataURL('image/jpeg');
+
+      let doc = new jsPDF('landscape');
+
+      var imgHeight = (canvas.height * 220) / canvas.width;
+      doc.addImage(imgData, 1, 1, 220, imgHeight);
+      doc.add;
+      doc.save('expoptedFile.jpeg');
+    });
+  }
 
   makePdf() {
     let pdf = new jsPDF();
