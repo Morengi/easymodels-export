@@ -5,6 +5,7 @@ import { AutosizeModule } from 'ngx-autosize';
 import { findIndex } from 'rxjs/operators';
 import html2canvas from 'html2canvas';
 import domtoimage from 'dom-to-image';
+import { saveAsPng, saveAsJpeg } from 'save-html-as-image';
 declare let jsPDF;
 
 @Component({
@@ -46,6 +47,35 @@ export class BoardComponent implements OnInit {
       date: Date.now(),
     });
     // console.log();
+  }
+
+  export_PNG() {
+    // //===================================1===============================
+    // let elem = document.getElementById('content');
+    // saveAsPng(
+    //   elem,
+    //   { filename: this.user_name, printDate: true },
+    //   {
+    //     backgroundColor: 'rgba(101,198,185,0.5)',
+    //     style: {
+    //       padding: '4px',
+    //       display: 'flex',
+    //       justyfyContent: 'center',
+    //     },
+    //   }
+    // );
+    // ==================================2=============================
+
+    let container = document.getElementById('content');
+    html2canvas(container).then(function (canvas) {
+      console.log(canvas);
+      let link = document.createElement('a');
+      document.body.appendChild(link);
+      link.download = 'html_image.png';
+      link.href = canvas.toDataURL('image/png');
+      link.target = '_blank';
+      link.click();
+    });
   }
 
   download_PDF() {
