@@ -53,7 +53,7 @@
     Доски
   </h1>
 </div>
-<table class="canva" width="100%">
+<table class="canva" width="100%" id="content">
   <tr>
     <td rowspan="2" class="container">
       <!-- ОТСЮДА НАЧАТЬ УДАЛЯТЬ -->
@@ -478,7 +478,7 @@
 {{ b.date | date: 'dd.MM.yyyy HH:mm' }}
 </div> -->
 
-<button (click)="export_PNG()">Эксорт в PDF</button>
+<button (click)="export_PNG()">Эксорт в PNG</button>
 
 <button (click)="download_PDF()">Эксорт в PDF 2</button>
 

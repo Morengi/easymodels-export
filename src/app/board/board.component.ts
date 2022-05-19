@@ -85,46 +85,49 @@ export class BoardComponent implements OnInit {
     html2canvas(element).then((canvas) => {
       console.log(canvas);
       var imgData = canvas.toDataURL('image/pdf');
-
+      // let link = document.createElement('a');
+      // document.body.appendChild(link);
+      // link.href = canvas.toDataURL('image/pdf');
+      // link.target = '_blank';
       let doc = new jsPDF('landscape');
-
+      // doc.addImage(link);
       var imgHeight = (canvas.height * 220) / canvas.width;
       doc.addImage(imgData, 1, 1, 220, imgHeight);
-      doc.add;
+      // doc.add;
       doc.save('expoptedFile.pdf');
     });
   }
 
-  @ViewChild('content') content!: ElementRef;
+  // @ViewChild('content') content!: ElementRef;
 
-  makeJpeg() {
-    var element = document.getElementById('content');
-    html2canvas(element).then((canvas) => {
-      console.log(canvas);
+  // makeJpeg() {
+  //   var element = document.getElementById('content');
+  //   html2canvas(element).then((canvas) => {
+  //     console.log(canvas);
 
-      var imgData = canvas.toDataURL('image/jpeg');
+  //     var imgData = canvas.toDataURL('image/jpeg');
 
-      let doc = new jsPDF('landscape');
+  //     let doc = new jsPDF('landscape');
 
-      var imgHeight = (canvas.height * 220) / canvas.width;
-      doc.addImage(imgData, 1, 1, 220, imgHeight);
-      doc.add;
-      doc.save('expoptedFile.jpeg');
-    });
-  }
+  //     var imgHeight = (canvas.height * 220) / canvas.width;
+  //     doc.addImage(imgData, 1, 1, 220, imgHeight);
+  //     doc.add;
+  //     doc.save('expoptedFile.jpeg');
+  //   });
+  // }
 
-  makePdf() {
-    let pdf = new jsPDF();
+  // makePdf() {
+  //   let pdf = new jsPDF();
 
-    // pdf.html(this.el1.nativeElement, {
-    //   callback: (pdf) => {
-    //     pdf.save('sample.pdf');
-    //   },
-    // });
-    pdf.addHTML(this.content.nativeElement, function () {
-      pdf.save('SavedPDF.pdf');
-    });
-  }
+  //   // pdf.html(this.el1.nativeElement, {
+  //   //   callback: (pdf) => {
+  //   //     pdf.save('sample.pdf');
+  //   //   },
+  //   // });
+  //   pdf.addHTML(this.content.nativeElement, function () {
+  //     pdf.save('SavedPDF.pdf');
+  //   });
+  // }
 
   saveBoard() {
     this.boards.push({
